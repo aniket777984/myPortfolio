@@ -1,12 +1,13 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import path from "path";
+import dotenv from "dotenv";
 
 export const app = express();
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
-    require("dotenv").config({ path: "backend/config/config.env" });
+    dotenv.config({ path: "backend/config/config.env" });
 }
 
 app.use(express.json({limit:"50mb"}));

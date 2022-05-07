@@ -1,12 +1,12 @@
 import {app} from "./app.js";
-// import path from "path";
+import path from "path";
 import {connectDatabase} from "./config/database.js"
 import cloudinary from "cloudinary";
-const  path = require("path");
+import dotenv from 'dotenv';
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({ path: "backend/config/config.env" });
+  dotenv.config({ path: "backend/config/config.env" });
 }
 
 connectDatabase();
