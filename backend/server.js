@@ -2,6 +2,7 @@ import {app} from "./app.js";
 // import path from "path";
 import {connectDatabase} from "./config/database.js"
 import cloudinary from "cloudinary";
+const  path = require("path");
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
