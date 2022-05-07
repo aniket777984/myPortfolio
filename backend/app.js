@@ -1,13 +1,11 @@
-import express from "express";
-import cookieParser from "cookie-parser";
-import path from "path";
-import dotenv from "dotenv";
-
-export const app = express();
+const express = require("express");
+const app =  express();
+const path = require("path");
+const cookieParser =require('cookie-parser') 
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
-    dotenv.config({ path: "backend/config/config.env" });
+    require("dotenv").config({ path: "backend/config/config.env" });
 }
 
 app.use(express.json({limit:"50mb"}));
@@ -16,11 +14,14 @@ app.use(cookieParser());
 
 
 
-import {userRouter} from "./routes/User.js"
+const userRouter =  require("./routes/User.js");
 
 app.use("/api/v1" , userRouter);
 
-app.use(express.static(path.join(_dirname, "../frontend/build")));
+
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 app.get("*", (req, res) => {
-    res.sendFile(path.resolve(_dirname, "../frontend/build/index.html"));
+    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
 });
+
+module.exports = app;

@@ -1,7 +1,7 @@
-import express from "express";
-import { addProject, addTimeline, addYoutube, contact, deleteProject, deleteTimeline, deleteYoutube, getUser, login, logout, myProfile, updateUser } from "../controller/User.js";
-import { isAutheticated } from "../middlewares/auth.js";
-export const userRouter = express.Router();
+const express = require("express");
+const { addProject, addTimeline, addYoutube, contact, deleteProject, deleteTimeline, deleteYoutube, getUser, login, logout, myProfile, updateUser } = require("../controller/User.js");
+const { isAutheticated }  = require("../middlewares/auth.js");
+const userRouter = express.Router();
 
 userRouter.route("/login").post(login);
 userRouter.route('/logout').get(logout);
@@ -17,3 +17,5 @@ userRouter.route("/admin/youtube/:id").delete(isAutheticated,deleteYoutube);
 userRouter.route("/admin/project/:id").delete(isAutheticated,deleteProject);
 
 userRouter.route('/contact').post(contact);
+
+module.exports = userRouter;
