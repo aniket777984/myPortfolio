@@ -1,6 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-const path = require("path");
+import path from "path";
 
 export const app = express();
 
