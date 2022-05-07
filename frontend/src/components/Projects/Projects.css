@@ -1,0 +1,193 @@
+.projects {
+    background-color: hsl(219, 48%, 8%);
+    min-height: 100vh;
+    padding-top: 13vmax;
+  }
+  
+  .projects > h3 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    background-color: hsl(250, 100%, 75%);
+    padding: 2vmax 4vmax;
+    display: flex;
+    border-radius: 100px;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%, -100vh);
+    animation: projectHeadingAnimation 1s ease-in-out forwards;
+  }
+  .projects > h3 > svg {
+    margin: 1vmax;
+  }
+  .projectsWrapper {
+    border-top: 100px solid white;
+    border-radius: 50px 50px 0 0;
+    min-height: inherit;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5vmax;
+    padding-bottom: 10vmax;
+  
+    overflow-x: hidden;
+  }
+  
+  .projectCard {
+    width: 70%;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.712);
+    margin: 2vmax;
+    border-radius: 10px;
+    display: flex;
+    transform: translateX(-100vw);
+    animation: projectCardAnimation 1s ease-in-out forwards 0.5s;
+    padding: 5vmax;
+  }
+  .projectCard:nth-child(even) {
+    transform: translateX(100vw);
+    flex-direction: row-reverse;
+    animation: projectCardAnimation 1s ease-in-out forwards 1s;
+  }
+  
+  .projectCard > div {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s;
+    justify-content: space-around;
+  }
+  .projectCard div:first-child{
+    padding: 3vmax;
+    border-radius: 10px;
+    border: 3px sloid hsl(250, 100%, 75%);
+  }  
+  .projectCard > div:first-child::after {
+    content: "VIEW DEMO";
+    width:50%;
+    padding: 1vmax;
+    font: 600 1rem "Roboto";
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: hsl(250, 100%, 75%);
+    color: white;
+  }
+  .projectCard > div:first-child > h5 {
+    text-align: center;
+    padding: 2vmax;
+    color: orange;
+    font-weight: 600;
+  }
+  .projectCard > div:last-child {
+    padding: 3vmax;
+    border-radius: 10px;
+    border: 3px sloid hsl(250, 100%, 75%);
+    margin-left: 10px;
+  }
+  .projectCard > div:last-child > h4 {
+    text-align: center;
+    color: brown;
+    font-weight: 600;
+  }
+  .projectCard > div:last-child > p {
+    text-align: right;
+  }
+  .projectCard > div:last-child > h6 {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+  }
+  .projectCard div:last-child h3{
+    font-weight: 600;
+    font-size: 30px;
+    color: hsl(250, 100%, 75%);
+  }
+  .projectCard > div > img {
+    width: inherit;
+  }
+  
+  .projectCard div:first-child:hover {
+    transform: translateY(-1vmax);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.329);
+  }
+  .projectCard div:last-child:hover{
+    transform: translateY(-1vmax);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.329);
+  }
+  .projectCard:hover{
+    transform: translateY(-1vmax);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.329);
+  }
+
+  @keyframes projectCardAnimation {
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes projectHeadingAnimation {
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .projectsWrapper{
+      padding: 5px;
+    }
+    .projectCard {
+      flex-direction: column;
+      padding: 0px;
+      width: 100%;
+    }
+    .projectCard:hover{
+      transform: none;
+      box-shadow: none;
+    }
+    .projectCard div:last-child:hover{
+      transform:none;
+      box-shadow:none;
+    }
+    .projectCard div:last-child{
+      margin-top: 20px;
+    }
+    .projectCard > div:last-child > h4 {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .projectCard > div:last-child > h6 {
+      font-weight: bold;
+      color: black;
+      text-align: center;
+    }
+    .projectCard div:last-child h3{
+      display: none;
+    }
+    .projectCard:nth-child(even) {
+      flex-direction: column;
+    }
+    .projectCard > div {
+      justify-content: center;
+    }
+  
+    .projectCard > div:last-child > p {
+      text-align: center;
+    }
+    .projects>h3{
+        font-size: 20px;
+        left: 51%;
+    }
+    .projects>h3:last-child{
+      border-radius: 5px;
+      width: 81%;
+      margin-bottom: 10px;
+      display: none;
+    }
+  }
+  
